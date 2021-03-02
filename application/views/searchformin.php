@@ -107,42 +107,10 @@ color: rgba(0,0,0,0.7);
 </style>
 </head>
 <body class="bi">
-  <nav class="menubar">
-    <nav class=" navbar navbar-expand-lg top1">
-      <div class="container-fluid">
-        <a class="text-decoration-none text-white" href="#"><h1><h4>AFRS-USER</h4></h1></a>
-      <div>
-        <ul class="navbar-nav">
-          <li class="nav-item"> <a class="nav-link" href="<?php echo base_url()?>main/user">Home</a></li>
-          <li class="nav-item"> <a class="nav-link" href="<?php echo base_url()?>main/searchflight">Booking</a>
-          <li class="nav-item"> <a class="nav-link" href="#">Profile</a>
-            <div class="submenu1">
-        <ul>
-          <li class="nav-item"> <a class="nav-link" href="<?php echo base_url()?>main/regupdate"">update</a></li>
-        </ul>
-      </div>
-          </li>
-          <li class="nav-item"> <a class="nav-link" href="#">VIEW</a>
-            <div class="submenu2">
-              <ul>
-                    <li class="nav-item"> <a class="nav-link" href="<?php echo base_url()?>main/viewbookinguser">Booking Details</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="<?php echo base_url()?>main/ticket">Ticket view</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="<?php echo base_url()?>main/viewnotif">View Notification</a></li>
-              </ul>
-            </div>
-          </li>
-              <li class="nav-item"> <a class="nav-link" href="<?php echo base_url()?>main/logout">Logout</a></li>
-    
-            </ul> 
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
-</nav>
+  
 
 <h3 class="bg-primary text-white text-center">FLIGHT SEARCH</h3>
-<form style="margin-left: 450px" method="post" action="<?php echo base_url()?>main/searchaction">
+<form style="margin-left: 450px" method="post" action="<?php echo base_url();?>main/searchactionin ">
 <fieldset style="width:430px;height:400px;background-color:rgba(0,0,0,0.3); margin-left: 20px; margin-top: 50px;">
 <legend><strong></strong></legend>
 <table>

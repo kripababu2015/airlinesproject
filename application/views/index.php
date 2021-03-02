@@ -115,7 +115,7 @@ button:hover {
 
 .animate {
   -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
+  animation: animatezoom 0.6s;
 }
 img.avatar {
   width: 100px;
@@ -159,12 +159,12 @@ input[type=text]:focus, input[type=password]:focus {
 
 
 button {
-  background-color: #4CAF50;
-  color: white;
+  background-color: rgba(0,0,0,0,0.1);
+  color: black;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin: 4px 0;
   border: none;
-  width: 100%;
+  width: 15%;
   opacity: 0.9;
 }
 
@@ -197,7 +197,7 @@ button:hover {
 
 
 .container {
-  padding: 16px;
+  padding: 10px;
 }
 
 
@@ -206,7 +206,7 @@ button:hover {
   position: fixed; 
   z-index: 1;
   left: 200px;
-  top: 0;
+  top: 50px;
   width: 80%; 
   height: 100%; 
   overflow: auto; 
@@ -240,8 +240,7 @@ hr {
 .close:hover,
 .close:focus {
   color: #f44336;
-  cursor: pointer;
-}
+  
 
 
 .clearfix::after {
@@ -249,11 +248,52 @@ hr {
   clear: both;
   display: table;
 }
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 
     </style>
 
 <body>
         <!------header section---->
+<section>
 <header>
     <nav class="back">
         <div class="container-fluid top ">
@@ -278,11 +318,16 @@ hr {
             <a href="#" class="text-decoration-none text-dark"><h4>AIRLINE FLIGHT AND RESERVATION SYSTEM</h4></a>
                 <ul class="navbar-nav">
                 <li class="nav-item"><a href="#" class="nav-link  text-dark">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link  text-dark">About</a></li>
-                <li class="nav-item"><a href="#" class="nav-link  text-dark">Contact</a></li>
-                <li class="nav-item"><a href="#" class="nav-link  text-dark">Feature</a></li>
-                <li class="nav-item"><a href="#" class="nav-link  text-dark">Gallery</a></li>
-                <li class="nav-item"><a href="#" class="nav-link  text-dark">Help</a></li>
+                <li class="nav-item"><a href="<?php echo base_url()?>main/service" class="nav-link  text-dark">Service</a></li>
+                <li class="nav-item"><a href="<?php echo base_url()?>main/searchflightin" class="nav-link  text-dark">Search Flight</a></li>
+                <li class="nav-item"><a href="<?php echo base_url()?>main/contact" class="nav-link  text-dark">Contact</a></li>
+                <li class="nav-item"><a href="<?php echo base_url()?>main/gallery" class="nav-link  text-dark">Gallery</a></li>
+                <li class="nav-item"><a href="<?php echo base_url()?>main/search" class="nav-link  text-dark">Airport Details</a></li>
+            </ul>
+            <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+            <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">register</button>
+            <button id="myBtn">Protocol</button>
+            <li</li>
             </ul>
         </div>
     </div>
@@ -315,12 +360,7 @@ hr {
   
 <!-- login/register -->
 
-<div class="log">
-    <h2>Login/Register</h2>
 
-        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-        <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">register</button>    
-</div>
 
 <!-- login pop up -->
 
@@ -424,9 +464,58 @@ hr {
                             }
        
     </script>
+  </section>
 
 
 
+<!-- Trigger/Open The Modal -->
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h4>covid protocol</h4>
+    <p>The World Health Organization (WHO) issues regularly updated position papers on vaccines against diseases that have an international public health impact. This paper, which presents WHO’s position on the advisability of requirements for COVID-19 vaccination or proof of vaccination for international travellers, is designed for use mainly by national public health officials and managers of immunization programmes. It may also be of interest to other branches of government responsible for travel or immigration, international funding agencies, vaccine advisory groups, the medical community, the scientific media and the public.</p>
+    <p >The paper presents scientific, ethical, legal and technological considerations regarding the possible introduction of requirements by States Parties of proof of COVID-19 vaccination for outgoing or incoming international travellers, pursuant to  provisions of the International Health Regulations (2005) (IHR).</p>
+
+<p>It does not address the use of certificates for signifying a person’s immune status, which reflects whether a person has developed antibodies in response to SARS-CoV-2 infection; whereas vaccination status reflects only whether someone has received a COVID-19 vaccine. WHO has outlined  considerations regarding “immunity” passports elsewhere.  In addition, for more detailed discussion on ethical issues and considerations pertaining to immunity passports, please refer to the peer-reviewed article “Immunity certification for COVID-19: ethical considerations”</p>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+  
+
+  
     <!---Jquery--->
 <script
   src="https://code.jquery.com/jquery-3.5.1.js"integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="

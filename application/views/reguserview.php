@@ -1,7 +1,7 @@
+<!DOCTYPE html>
 <html>
 <head>
-
-<title> ADMIN  </title>
+<title>first site</title>
 <meta charset=utf-8>
             <meta name="viewport" content="width=device-width,initial-scale=1">
             <!---Fontawesome--->
@@ -9,10 +9,37 @@
             <!---Bootstrap5----->
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
             <!---custom style---->
-
-</head>
+            <link rel="stylesheet" href="css/style.css">
 <style>
-  nav{
+	nav{
+    font-size: 20px;
+    background-color: rgba(0,0,0,0.8);
+    
+    text-align: center;
+    
+  }
+	/*table,td{
+		padding: 20px;
+		font-size: 20px;
+		border: 1px solid red;
+		border-collapse:collapse;
+	
+	}*/
+	*{
+	padding:0px;
+	margin:0px;
+}
+	.bi{
+	background-image:url("../img/the-sky.jpg");
+	background-size:cover;
+}
+
+h1{
+	text-align: center;
+	color: red;
+	font-size: 50px;
+}
+nav{
     font-size: 20px;
     background-color: rgba(0,0,0,0.8);
     
@@ -102,12 +129,11 @@ background-size:cover;
 text-align:center;
 color: rgba(0,0,0,0.5);
 }
-</style>
 
-
-
-<body class="bi ">
-  <nav class="menubar">
+	</style>
+</head>
+<body class="bi">
+	 <nav class="menubar">
     <nav class=" navbar navbar-expand-lg top1">
       <div class="container-fluid">
         <a class="text-decoration-none text-white" href="#"><h1><h4>AFRS-ADMIN</h4></h1></a>
@@ -143,7 +169,7 @@ color: rgba(0,0,0,0.5);
               </ul>
             </div>
           </li>
-              <li class="nav-item"> <a class="nav-link" href="<?php echo base_url()?>main/logout">Logout</a></li>
+              <li class="nav-item"> <a class="nav-link" href="<?php echo base_url()?>main/index">Logout</a></li>
     
             </ul> 
           </ul>
@@ -152,12 +178,47 @@ color: rgba(0,0,0,0.5);
     </nav>
   </div>
 </nav>
-<div class="head">
-<h1><i>“It can hardly be a coincidence that no language on earth has ever produced the expression, 'As pretty as an airport.”</i></h1>
+<h3 class="bg-primary text-white text-center">USER VIEW</h3>
+	<form method="post" action="">
+	<table class="table table-striped table-bordered table-hover table-dark">
+		<tr>
+			<td>First name</td>
+			<td>Last name</td>
+			<td>Age</td>
+			<td>Gender</td>
+			<td>Address</td>
+			<td>Phone number</td>
+			<td>Adhar number</td>
+			<td>Email</td>
+			</tr>
+			<?php
+			if($n->num_rows()>0)
+			{
+				foreach($n->result() as $row)
+				{
+					?>
+					<tr>
+						<td><?php echo $row->fname;?></td>
+						<td><?php echo $row->lname;?></td>
+						<td><?php echo $row->age;?></td>
+						<td><?php echo $row->gender;?></td>
+						<td><?php echo $row->address;?></td>
+						<td><?php echo $row->phno;?></td>
+						<td><?php echo $row->adno;?></td>
+						<td><?php echo $row->email;?></td>
+						
+						
+					<?php
+				}
+			}
+			
+				?>
+				
 
-  
 
-
+	</table>
+	
+</form>
 <!---Jquery--->
 <script
   src="https://code.jquery.com/jquery-3.5.1.js"integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
@@ -170,8 +231,6 @@ color: rgba(0,0,0,0.5);
 
 <!---Custom Js-->
 <script src="js/script.js">
-
-</script>
 
 </body>
 </html>

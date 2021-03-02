@@ -2,32 +2,30 @@
 <html>
 <head>
 <title>first site</title>
-<meta charset=utf-8>
-            <meta name="viewport" content="width=device-width,initial-scale=1">
-            <!---Fontawesome--->
-            <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-            <!---Bootstrap5----->
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-            <!---custom style---->
-            <link rel="stylesheet" href="css/style.css">
-
 <style>
-*{
-padding:0px;
-margin:0px;
+	*{
+	padding:0px;
+	margin:0px;
 }
-table,td{
-padding: 20px;
-font-size: 20px;
+	table,td{
+		padding: 20px;
+		font-size: 20px;
+		border: 2px solid white;
+		border-collapse:collapse;
+		margin-left: 50px;
+		margin-top: 80px;
+		background-color: black;
+		color: white;
+	}
+	.bi{
+	background-image:url("../img/wp1853425.jpg");
+	background-size:cover;
 }
-.bi{
-background-image:url("../img/23.jpg");
-background-size:cover;
-}
-h3{
-text-align: center;
-color: red;
-font-size: 50px;
+
+h1{
+	text-align: center;
+	color: black;
+	font-size: 50px;
 }
 nav{
     font-size: 20px;
@@ -104,10 +102,10 @@ text-align:center;
 color: rgba(0,0,0,0.7);
 }
 
-</style>
+	</style>
 </head>
 <body class="bi">
-  <nav class="menubar">
+	<nav class="menubar">
     <nav class=" navbar navbar-expand-lg top1">
       <div class="container-fluid">
         <a class="text-decoration-none text-white" href="#"><h1><h4>AFRS-USER</h4></h1></a>
@@ -140,64 +138,57 @@ color: rgba(0,0,0,0.7);
     </nav>
   </div>
 </nav>
+	
+<h1>BOOKING VIEW</h1>
 
-<h3 class="bg-primary text-white text-center">FLIGHT SEARCH</h3>
-<form style="margin-left: 450px" method="post" action="<?php echo base_url()?>main/searchaction">
-<fieldset style="width:430px;height:400px;background-color:rgba(0,0,0,0.3); margin-left: 20px; margin-top: 50px;">
-<legend><strong></strong></legend>
-<table>
-<tr>
-<td>
-Departure:</td>
-<td><input list="dep" name="departure" class="form-control">
-<datalist id="dep">
-<option value="KANNUR">
-	<option value="KOCHI">
-<option value="TVM">
-<option value="KOZHIKODE">
-<option value="CHENNAI">
-<option value="BANGALORE">
-  <option value="MUMBAI">
-</datalist></td>
-</tr>
-<tr>
-<td>
-Arrival:</td>
-<td><input list="arri" name="arrival" class="form-control">
-<datalist id="arri">
-<option value="KANNUR">
-	<option value="KOCHI">
-<option value="TVM">
-<option value="KOZHIKODE">
-<option value="CHENNAI">
-<option value="BANGALORE">
-  <option value="MUMBAI">
-</datalist></td>
-</tr>
-<tr>
-<td>
-Date:</td>
-<td><input type="date" name="depdate" class="form-control"></td>
-</tr>
-<tr><td><input type="submit" name="submit" value="Search"></td></tr>
+	<form method="post" action="">
+	<table>
+		<tr>
+			<td>Name</td>
+			<td>Phone Number</td>
+			<td>Address</td>
+			<td>Age</td>
+			<td>Flight number</td>
+			<td>Departure</td>
+			<td>Arrival</td>
+			<td>Date</td>
+			<td>Booking Number</td>
+			<td>Class</td>
+			<td>Ticket charge</td>
+			
+			</tr>
+			<?php
+			if($n->num_rows()>0)
+			{
+				foreach($n->result() as $row)
+				{
+					?>
+					<tr>
+						<td><?php echo $row->fname;?></td>
+						<td><?php echo $row->phno;?></td>
+						<td><?php echo $row->address;?></td>
+						<td><?php echo $row->age;?></td>
+						<td><?php echo $row->fno;?></td>
+						<td><?php echo $row->departure;?></td>
+						<td><?php echo $row->arrival;?></td>
+						<td><?php echo $row->depdate;?></td>
+						<td><?php echo $row->bid;?></td>
+						<td><?php echo $row->class;?></td>
+						<td><?php echo $row->ticketcharge;?></td>
+						</tr>
+						
+						
+						
+					<?php
+				}
+			}
+			
+				?> 
+				
 
-</table>
 
-</fieldset>
-
+	</table>
+	
 </form>
-<script
-  src="https://code.jquery.com/jquery-3.5.1.js"integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous">
-</script>
-
-<!---Popper---->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-</script>
-
-<!---Custom Js-->
-<script src="js/script.js">
-
-
 </body>
 </html>

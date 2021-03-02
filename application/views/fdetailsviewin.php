@@ -94,39 +94,7 @@ table,td,tr
 
 </head>
 <body class="bi ">
-  <nav class="menubar">
-    <nav class=" navbar navbar-expand-lg top1">
-      <div class="container-fluid">
-        <a class="text-decoration-none text-white" href="#"><h1><h4>AFRS-USER</h4></h1></a>
-      <div>
-        <ul class="navbar-nav">
-          <li class="nav-item"> <a class="nav-link" href="<?php echo base_url()?>main/user">Home</a></li>
-          <li class="nav-item"> <a class="nav-link" href="<?php echo base_url()?>main/searchflight">Booking</a>
-          <li class="nav-item"> <a class="nav-link" href="#">Profile</a>
-            <div class="submenu1">
-        <ul>
-          <li class="nav-item"> <a class="nav-link" href="<?php echo base_url()?>main/regupdate"">update</a></li>
-        </ul>
-      </div>
-          </li>
-          <li class="nav-item"> <a class="nav-link" href="#">VIEW</a>
-            <div class="submenu2">
-              <ul>
-                    <li class="nav-item"> <a class="nav-link" href="<?php echo base_url()?>main/viewbookinguser">Booking Details</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="<?php echo base_url()?>main/ticket">Ticket view</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="<?php echo base_url()?>main/viewnotif">View Notification</a></li>
-              </ul>
-            </div>
-          </li>
-              <li class="nav-item"> <a class="nav-link" href="<?php echo base_url()?>main/logout">Logout</a></li>
-    
-            </ul> 
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
-</nav>
+  
 <table  style=" " class="mt-5 bg-dark text-white">
 <tr>
 <th>flight no</th>
@@ -146,7 +114,7 @@ table,td,tr
 <th>firstclass seatavailability</th>
 <th>economicclass seatavailability</th>
 <th>Buisnessclass seatavailability</th>
-<th>Action</th>
+
 
 
 </tr>
@@ -178,37 +146,13 @@ foreach ($n->result() as $row)
 <td><?php echo $row->aeconomic;?></td>
 <td><?php echo $row->abuisness;?></td>
 
-<?php if($row->status==1)
-{
- ?>
-<td><a>Flight Cancelled</a></td>
-<?php
-}
-elseif($row->afirst<=0 && $row->aeconomic<=0 && $row->abuisness<=0)
-{
-	?>
- <input type="hidden" name="id" value="<?php echo $row->id;?>">
-<td><a>Booking closed</a></td>
-<!--<td><a href="<?php echo base_url()?>main/deletedetails<?php echo $row->bid;?>">Delete</a></td> -->
-<?php
-}
-else
-{
-	?>
-<input type="hidden" name="id" value="<?php echo $row->id;?>">
-<td><a href="<?php echo base_url()?>main/bookflight/<?php echo $row->id;?>">Book Now</a></td>
+
+
 </tr>
+
+
 <?php
 }
-}
-}
-else
-{
-?>
-<tr>
-<td>No Data Found</td>
-</tr>
-<?php
 }
 
 ?>

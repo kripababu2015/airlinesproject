@@ -1,18 +1,33 @@
+<!DOCTYPE html>
 <html>
 <head>
-
-<title> ADMIN  </title>
-<meta charset=utf-8>
-            <meta name="viewport" content="width=device-width,initial-scale=1">
-            <!---Fontawesome--->
-            <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-            <!---Bootstrap5----->
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-            <!---custom style---->
-
-</head>
+<title>first site</title>
 <style>
-  nav{
+	*{
+	padding:0px;
+	margin:0px;
+}
+	table,td{
+		padding: 20px;
+		font-size: 20px;
+		border: 2px solid white;
+		border-collapse:collapse;
+		margin-left: 50px;
+		margin-top: 80px;
+		background-color: black;
+		color: white;
+	}
+	.bi{
+	background-image:url("../img/wp1853425.jpg");
+	background-size:cover;
+}
+
+h1{
+	text-align: center;
+	color: black;
+	font-size: 50px;
+}
+nav{
     font-size: 20px;
     background-color: rgba(0,0,0,0.8);
     
@@ -102,12 +117,11 @@ background-size:cover;
 text-align:center;
 color: rgba(0,0,0,0.5);
 }
-</style>
 
-
-
-<body class="bi ">
-  <nav class="menubar">
+	</style>
+</head>
+<body class="bi">
+	 <nav class="menubar">
     <nav class=" navbar navbar-expand-lg top1">
       <div class="container-fluid">
         <a class="text-decoration-none text-white" href="#"><h1><h4>AFRS-ADMIN</h4></h1></a>
@@ -152,26 +166,50 @@ color: rgba(0,0,0,0.5);
     </nav>
   </div>
 </nav>
-<div class="head">
-<h1><i>“It can hardly be a coincidence that no language on earth has ever produced the expression, 'As pretty as an airport.”</i></h1>
+	
+<h1>NOTIFICATION VIEW</h1>
 
-  
+	<form method="post" action="">
+	<table>
+		<tr>
+			<td>Flight Number</td>
+			<td>Flight Name</td>
+			<td>Departure</td>
+			<td>Arrival</td>
+			<td>Departure Date</td>
+			<td>Notification</td>
+			<td>Date</td>
+			<td>Action</td>
+			
+			</tr>
+			<?php
+			if($n->num_rows()>0)
+			{
+				foreach($n->result() as $row)
+				{
+					?>
+					<tr>
+						<td><?php echo $row->fno;?></td>
+						<td><?php echo $row->fname;?></td>
+						<td><?php echo $row->departure;?></td>
+						<td><?php echo $row->arrival;?></td>
+						<td><?php echo $row->depdate;?></td>
+						<td><?php echo $row->notification;?></td>
+						<td><?php echo $row->cdate;?></td>
+						<td><a href="<?php echo base_url()?>main/deletenotif/<?php echo $row->id;?>">Delete</a></td>
+						
+						
+						
+					<?php
+				}
+			}
+			
+				?> 
+				
 
 
-<!---Jquery--->
-<script
-  src="https://code.jquery.com/jquery-3.5.1.js"integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous">
-</script>
-
-<!---Popper---->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-</script>
-
-<!---Custom Js-->
-<script src="js/script.js">
-
-</script>
-
+	</table>
+	
+</form>
 </body>
 </html>
